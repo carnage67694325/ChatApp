@@ -5,3 +5,4 @@ const String kLogo = 'assets/images/scholar.png';
 const String kMessages = 'messages';
 const String kMessage = 'message';
 const String kCreatedAt = 'createdAt';
+const String kCreatedAt2 = 'createdAt';
