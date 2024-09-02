@@ -33,10 +33,10 @@ class _SignInPageState extends State<SignInPage> {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
-          Navigator.pushNamed(context, ChatPage.id);
+          Navigator.pushNamed(context, ChatPage.id, arguments: email);
           isLoading = false;
         } else if (state is LoginFailure) {
-          showSnackBar(context, 'Something went wrong');
+          showSnackBar(context, state.errMessage);
           isLoading = false;
         }
       },
