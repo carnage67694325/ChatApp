@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scholar_chat/constants.dart';
+import 'package:scholar_chat/cubits/chat_cubit/cubit/chat_cubit.dart';
 import 'package:scholar_chat/cubits/login_cubit/cubit/login_cubit.dart';
 import 'package:scholar_chat/helper/show_snack_bar.dart';
 import 'package:scholar_chat/pages/chat_page.dart';
@@ -33,6 +34,7 @@ class _SignInPageState extends State<SignInPage> {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getMessages();
           Navigator.pushNamed(context, ChatPage.id, arguments: email);
           isLoading = false;
         } else if (state is LoginFailure) {
